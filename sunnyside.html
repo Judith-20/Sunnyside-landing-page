@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sunny Side Agency</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="./sunnyside.css" />
+    </head>
+    <body>
+       <!-- this takes u back to d navbar when u click on it -->
+        <a href="#navbar" class="bottom-nav">Back to top</a>
+
+        <header>
+            <nav id="navbar">
+                <a href="sunnyside.html" class="logo">
+                    <img src="./images/logo.svg" alt="logo image" />
+                </a>
+
+                <div class="menulinks" id="menulinks">
+                    <span class="close-btn" id="close-btn"> &times; </span>
+
+                    <ul class="navlinks">
+                        <li>
+                            <a href="#">About</a>
+                        </li>
+                        <li>
+                            <a href="#">Services</a>
+                        </li>
+                        <li>
+                            <a href="#">Projects</a>
+                        </li>
+                    </ul>
+                    <button class="contact-cta">contact</button>
+                </div>
+
+                <div class="menu-toggle" id="menu-toggle">
+                    <div class="menu-icon"></div>
+                    <div class="menu-icon"></div>
+                    <div class="menu-icon"></div>
+                </div>
+            </nav>
+
+            <div class="header-text">
+                <h4>We are creatives</h4>
+
+                <div>
+                    <img src="./images/icon-arrow-down.svg" alt="arrow image" class="arrow-down">
+                </div>
+
+            </div>
+        </header>
+
+        <section class="grid-section">
+            <!-- div.grid.{grid}*6 -->
+            <div class="grid grid-1">
+                <div class="grid-text">
+                <h3>Transform your brand</h3>
+                <p>We are a full-service creative agency specializing in helping brands grow fast.
+                    Engage your clients through compelling visuals that do most of the marketing for you.
+                </p>
+                <!-- cta means call to action -->
+                <button class="grid-1-cta"> Learn more
+                    <span class="cta-span"></span>
+                </button>
+            </div>
+            </div>
+            <div class="grid grid-2">
+                <picture>
+                    <!-- for desktop -->
+                    <source media="(min-width: 768px)" srcset="./images/desktop/image-transform.jpg" />
+                    
+                    <!-- for mobile -->
+                    <source media="(max-width: 768px)" srcset="./images/mobile/image-transform.jpg" />
+                
+                    <!-- back up image to display on d screen-->
+                    <img src="./images/desktop/image-transform.jpg" alt="egg">
+                </picture>
+            </div>
+
+            <div class="grid grid-3">
+                <picture>
+                    <!-- for desktop -->
+                    <source media="(min-width: 768px)" srcset="./images/desktop/image-stand-out.jpg" />
+                    
+                    <!-- for mobile -->
+                    <source media="(max-width: 768px)" srcset="./images/mobile/image-stand-out.jpg" />
+                
+                    <!-- back up image to display on d screen-->
+                    <img src="./images/desktop/image-stand-out.jpg" alt="stand out">
+                </picture>
+            </div>
+
+            <div class="grid grid-4">
+                <div class="grid-text">
+                <h3>Stand out to the right audience</h3>
+                <p>Using a collaborative formula of designers, researchers, photographers, videographers 
+                    and copywriters, we'll build and extend your brand in digital places
+                </p>
+                <button class="grid-4-cta">Learn more
+                    <span class="cta-span1"></span>
+                </button>
+            </div>
+            </div>
+
+            <div class="grid grid-5">
+                <picture>
+                    <!-- for desktop -->
+                    <source media="(min-width: 768px)" srcset="./images/desktop/image-graphic-design.jpg" />
+                    
+                    <!-- for mobile -->
+                    <source media="(max-width: 768px)" srcset="./images/mobile/image-graphic-design.jpg" />
+                
+                    <!-- back up image to display on d screen-->
+                    <img src="./images/desktop/image-graphic-design.jpg" alt="cherry">
+                </picture>
+
+                <div class="graphic-text">
+                    <h3>graphic design</h3>
+                    <p>Great design makes you memorable. We deliver artwork
+                        that underscores your brand message and captures potential clients' attention.
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid grid-6">
+                <picture>
+                    <!-- for desktop -->
+                    <source media="(min-width: 768px)" srcset="./images/desktop/image-photography.jpg" />
+                    
+                    <!-- for mobile -->
+                    <source media="(max-width: 768px)" srcset="./images/mobile/image-photography.jpg" />
+                
+                    <!-- back up image to display on d screen-->
+                    <img src="./images/desktop/image-photography.jpg" alt="orange">
+                </picture>
+
+                <div class="photography-text">
+                    <h3>Photography</h3>
+                    <p>Increase your credibility by getting the most stunning, high-quality 
+                        photos that improve your business image.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <div class="client-testimonials">
+            <h4 class="uppercase">client testimonials</h4>
+            
+            <div class="row wrap">
+                <div class="card">
+                    <div class="img-container">
+                        <img src="./images/image-emily.jpg" alt="">
+                    </div>
+
+                    <p>We put our trust in Sunnyside and they delivered, making sure our needs
+                        were met and deadlines were always hit.
+                    </p>
+
+                    <div class="client-identity">
+                        <h6>Emily R.</h6>
+                        <p>Marketing Director</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="img-container">
+                        <img src="./images/image-thomas.jpg" alt="">
+                    </div>
+
+                    <p>Sunnyside's enthusiasm coupled with their keen interest in our brand's 
+                        success made it a satisfying and enjoyable experience.
+                    </p>
+
+                    <div class="client-identity">
+                        <h6>Thomas S.</h6>
+                        <p>Chief Operating Officer</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="img-container">
+                        <img src="./images/image-jennie.jpg" alt="">
+                    </div>
+
+                    <p>Incredible end result! Our sales increased over 400% when we worked with Sunnyside.
+                        Highly recommended
+                    </p>
+
+                    <div class="client-identity">
+                        <h6>Jennie F.</h6>
+                        <p>Business Owner</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-gallery" id="image-gallery">
+            <div class="row wrap">
+                <!-- to put in images of both the mobile and desktop so each will display depending on where d image z viewed from -->
+            <picture>
+                <!-- for desktop -->
+                <source media="(min-width: 768px)" srcset="./images/desktop/image-gallery-milkbottles.jpg" />
+                
+                <!-- for mobile -->
+                <source media="(max-width: 768px)" srcset="./images/mobile/image-gallery-milkbottles.jpg" />
+            
+                <!-- back up image to display on d screen-->
+                 <img src="./images/desktop/image-gallery-milkbottles.jpg" alt="">
+            </picture>
+
+            <picture>
+                <source media="(min-width: 768px)" srcset="./images/desktop/image-gallery-orange.jpg" />
+                
+                <source media="(max-width: 768px)" srcset="./images/mobile/image-gallery-orange.jpg" />
+            
+                <img src="./images/desktop/image-gallery-orange.jpg" alt="">
+            </picture>
+            
+            <picture>
+                <source media="(min-width: 768px)" srcset="./images/desktop/image-gallery-cone.jpg" />
+                
+                <source media="(max-width: 768px)" srcset="./images/mobile/image-gallery-cone.jpg" />
+            
+                <img src="./images/desktop/image-gallery-cone.jpg" alt="">
+            </picture>
+            
+            <picture>
+                <source media="(min-width: 768px)" srcset="./images/desktop/image-gallery-sugarcubes.jpg" />
+            
+                <source media="(max-width: 768px)" srcset="./images/mobile/image-gallery-sugar-cubes.jpg" />
+            
+                <img src="./images/desktop/image-gallery-sugarcubes.jpg" alt="">
+            </picture>
+            </div>
+
+        </div>
+
+        <footer>
+            <div class="column">
+                <h6>sunnyside</h6>
+                <ul class="row">
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Projects</a></li>
+                </ul>
+
+                <div class="social-icons row">
+                    <span><i class="fa-brands fa-square-facebook"></i>
+                    </span>
+                    <span><i class="fa-brands fa-instagram"></i></span>
+                    <span><i class="fa-brands fa-twitter"></i></span>
+                    <span><i class="fa-brands fa-pinterest"></i></span>
+                </div>
+            </div>
+        </footer>
+        <script src="./sunnyside.js"></script>
+    </body>
+</html>

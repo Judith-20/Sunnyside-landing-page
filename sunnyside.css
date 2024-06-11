@@ -1,0 +1,827 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@100;200;300;400;500;600;700;800;900&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap');
+/* for colors u are going to use, just put them in a variable(var)
+then call the variable name when u need it. first start with root */
+:root{
+    --softRed: hsl(7, 99%, 70%);
+    --yellow: hsl(51, 100%, 49%);
+    --darkDesaturatedCyan: hsl(167, 40%, 24%);
+    --darkBlue: hsl(198, 62%, 26%);
+    --darkModerateCyan: hsl(168, 34%, 41%);
+    --veryDarkDesaturatedBlue: hsl(212, 27%, 19%);
+    --veryDarkGrayishBlue: hsl(213, 9%, 39%);
+    --darkGrayishBlue: hsl(232, 10%, 55%);
+    --grayishBlue: hsl(210, 4%, 67%);
+    --white: hsl(0, 0%, 100%);
+    --barlow: "Barlow", sans-serif;
+    --fraunces: "Fraunces", serif;
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+/* scroll bar styling */
+/* width of d scrollbar */
+::-webkit-scrollbar{
+    scrollbar-width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track{
+    background: red;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb{
+    background: var(--yellow);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    /* background: var(--grayishBlue); */
+    background: var(--yellow);
+}
+
+/* bottom nav */
+.bottom-nav{
+    background: rgb(44, 241, 241);
+    padding: 0.5rem;
+    border-radius: 50%;
+    color: rgb(19, 18, 18);
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    z-index: 1000;
+}
+
+header{
+    background-image: url("./images/desktop/image-header.jpg");
+    min-height: 100vh;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+
+li{
+    list-style-type: none;
+}
+/* Navigation bar */
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* rem is the root(relative) sizing for most pc's it is 16px so 2rem z 2*16 to get d value in px */
+    padding: 1rem 2rem;
+    position: relative;
+}
+
+.menulinks {
+    display: none;
+    gap: 1rem;
+
+}
+.close-btn{
+    color: var(--darkGrayishBlue);
+    font-size: 1.5rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+a{
+    text-decoration: none;
+}
+
+.menulinks.active ul a {
+    color: var(--darkGrayishBlue);
+    font-weight: 600;
+}
+.menulinks.active ul{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+}
+.menulinks ul a{
+    color: var(--veryDarkDesaturatedBlue);
+    font-family: var(--barlow);
+}
+
+/* calling the active class from js */
+.menulinks.active {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 5.5rem;
+    left: 60%;
+    transform: translateX(-50%);
+    width: 60%;
+    background-color: white ;
+    z-index: 50;
+    padding: 1.25rem;
+    align-items: center;
+}
+.menulinks.active .contact-cta {
+    background: var(--yellow);
+    color: black;
+}
+/* adding pseudo elements */
+.menulinks.active::after{
+    content: '';
+    width: 0;
+    height: 0;
+    border-top: 20px solid transparent;
+    border-left: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-right: 20px solid white;
+    position: absolute;
+    right: 0;
+    top: -20px;
+}
+
+.contact-cta{
+    background-color: var(--white);
+    color: black;
+    padding: 0.65rem 1.3rem;
+    font-family: var(--fraunces);
+    height: 2.7rem;
+    border: none;
+    border-radius: 1.5rem;
+    text-transform: uppercase; /*changes text to uppercase*/
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+.contact-cta:hover{
+    background-color: rgb(119, 221, 221);
+    color: white;
+}
+.menu-toggle {
+    width: 2rem;
+    height: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    cursor: pointer;
+}
+.menu-icon{
+    width: 100%;
+    height: 0.35rem;
+    background-color: white;
+    border-radius: 2px;
+}
+
+@media screen and (max-width:480px) {
+    .menu-toggle {
+        width: 1.75rem;
+        height: 1.25rem;
+    }
+}
+
+@media screen and (min-width: 640px) {
+    .menulinks{
+        display: flex;
+        gap: 1.5rem;
+        align-items: center;
+    }
+    .menu-toggle {
+        display: none;
+    }
+    .menulinks ul{
+        display: flex;
+        gap: 1.5rem;
+        align-items: center;
+    }
+    .menulinks ul a{
+        color: var(--white);
+        font-family: var(--barlow);
+    }
+    .close-btn{
+        display: none;
+    }
+}
+/* Header text */
+
+.header-text{
+    position: absolute;
+    top: 38%;
+    left: 50%;
+    width: 90%;
+    /* to center using positioning use this. for both x & y axis use just translate(X, Y)
+    and as you are adjusting top, u also adjust d y-axis(for vertical centering) but for
+    horizontal, u change both left and d x-axis */
+    transform: translate(-50%, -38%);
+    text-align: center;
+}
+
+.header-text h4{
+    font-size: 2.9rem;
+    font-family: var(--fraunces);
+    font-weight: 900;
+    color: white;
+    text-transform: uppercase;
+    margin-bottom: 10rem;
+    /* letter spacing gives space between the letters */
+    letter-spacing: 8px;
+}
+
+.arrow-down {
+    position: absolute;
+    height: 5rem;
+    width: 1.7rem;
+    left: 49%;
+    bottom: 5%;
+
+}
+
+@media screen and (max-width: 667px) {
+    .header-text h4{
+        font-size: 2.8rem;
+        margin-bottom: 10rem;
+    }
+    .arrow-down{
+        height: 9rem;
+        width: 2.9rem;
+        top: 50%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    header{
+        background-image: url("./images/mobile/image-header.jpg");
+    }
+    .header-text{
+        position: absolute;
+        top: 48%;
+        left: 49%;
+        width: 90%;
+        transform: translate(-50%, -40%);
+        text-align: center;
+    }
+    .header-text h4{
+        font-size: 3rem;
+        margin-bottom: 13rem;
+    }
+    .arrow-down {
+        height: 9rem;
+        width: 2.9rem;
+    }
+}
+/* GRID SECTION */
+.grid-section{
+    display: grid;
+    /* to get 2 column and d 1fr means to take wateva space & divide
+    it equally between d 2 columns */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+    /* grid-template-columns: repeat(3, 1fr); */
+   
+}
+
+.grid img {
+    width: 100%;
+    height: 100%;
+    /* height: 30rem; */
+    object-fit: cover;
+    margin: 0;
+    padding: 0;
+}
+.grid{
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+.grid picture {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+}
+
+.grid-text{
+    width: 70%;
+    margin: 2rem auto; /*centers it horizontally*/
+}
+.grid-text h3{
+    font-family: var(--fraunces);
+    font-weight: 800;
+    font-size: 2.75rem;
+    color: var(--veryDarkDesaturatedBlue);
+    margin-bottom: 0.5rem;
+}
+.grid-text p{
+    font-family: var(--barlow);
+    font-weight: 500;
+    color: var(--veryDarkGrayishBlue);
+    margin-bottom: 1rem;
+}
+.grid-text button{
+    font-weight: 900;
+    font-family: var(--fraunces);
+    text-transform: uppercase;
+    border: none;
+    background: transparent;
+    font-size: 1.15rem;
+    letter-spacing: 1px;
+    margin-bottom: 0;
+    position: relative;
+    padding: 0 3px;
+    cursor: pointer;
+}
+
+.cta-span {
+    display: block;
+    width: 9.7rem;
+    height: 10px;
+    /* background-color: var(--yellow); */
+    /* background-color: rgba(244, 248, 118, 0.6); */
+    background-color: rgba(239, 241, 97, 0.4);
+    position: absolute;
+    bottom: -3.5px;
+    right: -3px;
+    z-index: -1;
+    border-radius: 4px;
+}
+.cta-span1 {
+    display: block;
+    width: 9.7rem;
+    height: 10px;
+    /* background-color: var(--softRed); */
+    background-color: rgba(248, 181, 203, 0.5);
+    position: absolute;
+    bottom: -3.5px;
+    right: -4px;
+    z-index: -1;
+    border-radius: 4px;
+}
+@media screen and (max-width: 480px) {
+    .grid-text h3{
+        font-size: 2.3rem;
+        /* padding-bottom: 1rem; */
+        width: 80%;
+        margin: auto;
+    }
+    .grid-text{
+        width: 67%;
+        /* background-color: blue; */
+    }
+    .grid-text p{
+        margin: 1.5rem auto;
+        width: 70%;
+        color: var(--darkGrayishBlue);
+    }
+    .grid-text button {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    .grid-4 p{
+        width: 65%;
+        margin-bottom: 2rem;
+    }
+    .grid-4 h3{
+        font-size: 2rem;
+        width: 65%;
+    }
+    .cta-span {
+        width: 8.7rem;
+    }
+    .cta-span1{
+        width: 8.7rem;
+    }
+}
+
+/* Ensure images have no default margin/padding */
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+@media screen and (max-width: 768px) {
+    .grid-section{
+        /* grid-template-columns: repeat(1, 1fr);  or*/
+        grid-template-columns: 1fr;
+    }
+    .grid {
+        height: auto; /* Allow height to adjust based on content */
+    }
+    /* .grid-1, .grid-4 {
+        height: 60vh;
+        justify-content: center;
+    } */
+    .grid-1, .grid-4 {
+        width: 60%;
+        height: auto;
+        justify-content: center;
+        margin: 2rem auto;
+    }
+    .grid-1 .grid-4 p {
+        font-weight: 700;
+    }
+     
+    .grid-text {
+        text-align: center;
+        width: 100%; /* Ensure text container takes full width */
+    }
+    /* if u want to change the order of the pictures */
+.grid-1{
+    order: 2;
+}
+.grid-2{
+    order: 1;
+}
+.grid-3{
+    order: 3;
+}
+.grid-4{
+    order: 4;
+}
+.grid-5{
+    order: 5;
+}
+.grid-6{
+    order: 6;
+}
+}
+
+.grid-5{
+    position: relative;
+}
+
+
+/* .fruit-text{
+    display: flex;
+    align-items: center;
+    width: 75%;
+} */
+.graphic-text{
+    position: absolute;
+    width: 54%;
+    /* color: var(--darkDesaturatedCyan); */
+    color: hsl(168, 86%, 14%);
+    text-align: center;
+    font-weight: 900;
+    font-family: var(--barlow);
+    bottom: 12%;
+    right: 22%;
+}
+
+.graphic-text h3{
+    text-transform: capitalize;
+    font-weight: 800;
+    font-family: var(--fraunces);
+    margin-bottom: 20px;
+    font-size: 1.45rem;
+}
+.graphic-text p {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.grid-6{
+    position: relative;
+}
+.photography-text{
+    position: absolute;
+    width: 52%;
+    color: var(--darkBlue);
+    text-align: center;
+    font-family: var(--barlow);
+    /* bottom: 20%;
+    right: 25%;  */
+    bottom: 15%;
+    right: 20%;
+}
+
+.photography-text h3{
+    font-weight: 800;
+    font-family: var(--fraunces);
+    margin-bottom: 20px;
+    font-size: 1.45rem;
+
+}
+
+.photography-text p {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+@media screen and (max-width: 480px) {
+    .graphic-text{
+    bottom: 20%;
+    right: 5%;
+    width: 95%;
+    }
+    .graphic-text p{
+        width: 75%;
+        margin: auto;
+        padding: auto;
+    }
+    .graphic-text h3 {
+        font-weight: 900;
+    }
+    .photography-text{
+    bottom: 20%;
+    right: 5%;
+    width: 95%;
+    }
+    .photography-text p {
+        width: 75%;
+        margin: auto;
+        line-height: 1.4rem;
+        /* padding-bottom: 1.5rem; */
+    }
+    .photography-text h3 {
+        font-weight: 900;
+    }
+}
+@media screen and (max-width: 768px) {
+    .graphic-text{
+        bottom: 18%;
+        right: 5%;
+        width: 95%;
+        }
+        .graphic-text h3{
+            font-size: 2rem;
+        }
+        .graphic-text p{
+            width: 68%;
+            margin: 2rem auto;
+            font-size: 1.5rem;
+        }
+        .photography-text {
+        bottom: 13%;
+        right: 5%;
+        width: 95%;
+        }
+        .photography-text h3{
+            font-size: 2rem;
+        }
+        .photography-text p{
+            width: 68%;
+            margin: 2rem auto;
+            font-size: 1.5rem;
+        }
+        
+}
+/* when u have a particualar style in ur design that reoccur eg display:flex
+just assign it a class & u can use it over and over(reusable style) e.g is seen here as row & column  */
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+.column {
+    display: flex;
+    flex-direction: column;
+}
+.uppercase{
+    text-transform: uppercase;
+    color: var(--grayishBlue);
+    letter-spacing: 3px;
+    font-family: var(--fraunces);
+    font-weight: 800;
+    letter-spacing: 3px;
+    text-align: center;
+    font-size: .85rem;
+    margin: 1.8rem auto;
+}
+.client-testimonials{
+    padding: 6rem;
+}
+.client-testimonials .row{
+    padding-top: 1rem;
+    justify-content: space-between;
+    row-gap: 3rem;
+}
+
+.card{
+    flex-basis: 20rem;
+    text-align: center;
+}
+.img-container {
+    width: 3rem;
+    height: 3rem;
+    margin: auto;
+}
+
+.img-container img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+
+.card p {
+    color: var(--veryDarkGrayishBlue);
+    font-family: var(--barlow);
+    margin: 2.5rem 0;
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.9rem;
+    width: 90%;
+    /* line height is the height btw lines */
+    line-height: 1.8;
+}
+.wrap{
+    flex-wrap: wrap;
+}
+.client-identity p{
+    margin: 0;
+    font-size: 0.75rem;
+    color: var(--grayishBlue);
+    padding-left: 2.5rem;
+    padding-top: 0.45rem;
+    padding-right: 0;
+}
+.client-identity h6{
+    font-size: 0.85rem;
+    font-weight: 900;
+    font-family: var(--fraunces);
+    color: var(--veryDarkDesaturatedBlue);
+}
+
+@media screen and (max-width: 320px) {
+    .client-testimonials{
+        padding: 2rem;
+    }
+    .card{
+        flex-basis: 95%;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .client-testimonials{
+        padding: 3.5rem;
+    }
+    .card{
+        flex-basis: 14rem;
+    }
+}
+@media screen and (max-width: 767px) {
+    .client-testimonials .row{
+        padding-top: 4rem;
+        justify-content: center;
+        row-gap: 3rem;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .client-testimonials{
+        padding: 3.5rem;
+    }
+    .card{
+        flex-basis: 20rem;
+    }
+}
+
+/* image gallery */
+.image-gallery picture .row{
+    justify-content: center;
+    align-items: center;
+}
+.image-gallery picture{
+    display: flex;
+    flex-basis: 25%;
+    /* height: 30rem; */
+}
+.image-gallery picture img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+/* @media screen and (max-width: 768px) {
+    .image-gallery picture {
+        flex-basis: 40%;
+    }
+} */
+@media screen and (max-width: 768px) {
+    .image-gallery picture {
+        flex-basis: 50%;
+        /* height: 29rem; */
+    }
+}
+@media screen and (max-width: 480px) {
+    .image-gallery picture {
+        flex-basis: 50%;
+    }
+}
+/* footer */
+footer{
+    /* background-color: var(--darkModerateCyan); */
+    background-color: hsl(168, 41%, 71%);
+    padding: 2.7rem 6rem;
+    font-family: var(--barlow);
+}
+footer .column{
+    align-items: center;
+    justify-content: center;
+}
+footer h6{
+    color: var(--darkDesaturatedCyan);
+    font-size: 1.15rem;
+    font-weight: 900;
+    margin-bottom: 1.3rem;
+    letter-spacing: 0.5px;
+}
+footer li a {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--darkDesaturatedCyan);
+    padding-right: 1.5rem;
+}
+footer li a:hover {
+    color: var(--white);
+}
+footer .row{
+    gap: 1.4rem;
+    margin-bottom: 4rem;
+}
+
+.social-icons{
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: hsl(166, 57%, 27%);
+}
+.social-icons span:hover {
+    color: var(--white);
+}
+@media screen and (max-width: 480px) {
+    footer h6 {
+        font-size: 1.8rem;
+        color: hsl(166, 57%, 27%);
+        letter-spacing: 0.8px;
+        margin-bottom: 2rem;
+        
+    }
+    footer li a {
+        color: hsl(165, 38%, 39%);
+        /* font-weight: 900; */
+    }
+    .social-icons span {
+        color: hsl(166, 57%, 27%);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
