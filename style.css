@@ -56,6 +56,11 @@ html{
     bottom: 1rem;
     right: 1rem;
     z-index: 1000;
+    transition: transform .3s, background .3s;
+}
+.bottom-nav:hover {
+    background: rgb(108, 230, 230);
+    transform: scale(0.9);
 }
 
 header{
@@ -80,6 +85,9 @@ nav{
     /* rem is the root(relative) sizing for most pc's it is 16px so 2rem z 2*16 to get d value in px */
     padding: 1rem 2rem;
     position: relative;
+    box-shadow: 0 4px 3px hsl(168, 34%, 41%);
+    /* position: fixed;
+    width: 100vw; */
 }
 
 .menulinks {
